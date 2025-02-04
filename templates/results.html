@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                background: white;
+                color: #333;
+                margin: 0;
+                padding: 40px;
+            }
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            h1 {
+                color: #1DA1F2;
+                margin-bottom: 40px;
+            }
+            .winner {
+                background: #f8f9fa;
+                border-radius: 12px;
+                padding: 20px;
+                margin: 15px 0;
+                opacity: 0;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+                animation: fadeIn 0.5s forwards;
+            }
+            .winner:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+            .winner h2:before {
+                content: '🏆 ';
+            }
+            .winner h2 {
+                margin: 0;
+                color: #14171A;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>🎉 Prize Draw Winners 🎉</h1>
+            {winners_html}
+        </div>
+        <script>
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            
+            document.querySelectorAll('.winner').forEach(div => {
+                div.addEventListener('click', () => {
+                    window.open(div.getAttribute('data-profile'), '_blank');
+                });
+            });
+        </script>
+    </body>
+</html> 
