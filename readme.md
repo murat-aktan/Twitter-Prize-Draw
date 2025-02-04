@@ -28,7 +28,8 @@ Originally developed for [JUG Istanbul](https://www.jugistanbul.org/). Feel free
 1. Run the script:
    ```bash
    python prize_draw.py
-   ```2. Follow the authentication process in your browser
+   ```
+2. Follow the authentication process in your browser
 3. View the results in the automatically opened browser window
 
 ## Limitations
